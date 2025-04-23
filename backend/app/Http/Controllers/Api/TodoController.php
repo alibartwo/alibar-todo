@@ -56,13 +56,21 @@ class TodoController extends Controller
 
         // check received data
         $validated = $request->validate([
-            'completed' => 'required|boolean',
+            'title' => 'sometimes|string|max:255',
+            'completed' => 'sometimes|boolean',
         ]);
 
-        // update
-        $todo->completed = $validated['completed'];
+        // update only the fields provided
+        if (array_key_exists('title', $validated)) {
+            $todo->title = $validated['title'];
+        }
+
+        if (array_key_exists('completed', $validated)) {
+            $todo->completed = $validated['completed'];
+        }
+
         $todo->save();
-        
+
         // return res as a json
         return response()->json($todo);
     }
