@@ -1,27 +1,16 @@
 <template>
-  <ul class="space-y-3">
-    <TodoItem
-      v-for="todo in props.todos"
-      :key="todo.id"
-      :todo="todo"
-      @delete="emit('delete', $event)"
-      @update="emit('update', $event)"
-    />
+  <ul>
+    <TodoItem v-for="todo in todos" :key="todo.id" :todo="todo" @delete="$emit('delete', $event)" />
   </ul>
 </template>
 
 <script setup lang="ts">
-import { defineProps, defineEmits } from 'vue'
 import TodoItem from './TodoItem.vue'
+import type { Todo } from '@/types/todo'
 
-interface Todo {
-  id: number
-  title: string
-  completed: boolean
-  created_at: string
-  updated_at: string
-}
+defineProps<{
+  todos: Todo[]
+}>()
 
-const props = defineProps<{ todos: Todo[] }>()
-const emit = defineEmits(['delete'])
+defineEmits(['delete'])
 </script>

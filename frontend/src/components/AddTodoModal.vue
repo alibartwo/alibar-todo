@@ -1,28 +1,19 @@
 <template>
-  <div
-    class="fixed inset-0 bg-[#1c1654]/90 flex items-start justify-center pt-20 z-50"
-    @click.self="$emit('close')"
-  >
-    <div class="bg-white rounded-lg shadow-xl p-6 w-full max-w-md text-[#1c1654]">
-      <h3 class="text-xl font-semibold mb-4">Yeni Görev Ekle</h3>
-
+  <div class="fixed inset-0 bg-black/50 flex items-center justify-center z-50" @click.self="$emit('close')">
+    <div class="bg-white rounded-lg p-6 w-full max-w-md shadow-lg">
+      <h2 class="text-xl font-bold mb-4 text-[#1c1654]">Yeni Görev Ekle</h2>
       <input
         v-model="title"
         type="text"
-        placeholder="Görev başlığı..."
-        class="w-full border border-gray-300 rounded px-4 py-2 mb-4 focus:outline-none focus:ring-2 focus:ring-[#1cb8c4]"
+        placeholder="Bir görev yazın..."
+        class="w-full border px-4 py-2 rounded text-[#1c1654] border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#1cb8c4]"
+        @keydown.enter="submit"
       />
-
-      <div class="flex justify-end space-x-2">
-        <button
-          @click="$emit('close')"
-          class="px-4 py-2 rounded bg-gray-200 text-[#1c1654] hover:bg-gray-300"
-        >
-          İptal
-        </button>
+      <div class="mt-4 flex justify-end gap-2">
+        <button @click="$emit('close')" class="text-gray-500 hover:underline">İptal</button>
         <button
           @click="submit"
-          class="px-4 py-2 rounded bg-[#1cb8c4] text-white hover:bg-[#159aa8]"
+          class="bg-[#1cb8c4] text-white px-4 py-2 rounded hover:bg-[#18a1ae] transition"
         >
           Ekle
         </button>
@@ -34,13 +25,14 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 
+const emit = defineEmits(['close', 'add'])
 const title = ref('')
-const emit = defineEmits(['add', 'close'])
 
 function submit() {
-  if (title.value.trim() === '') return
-  emit('add', title.value.trim())
-  title.value = ''
-  emit('close')
+  if (title.value.trim() !== '') {
+    emit('add', title.value.trim())
+    title.value = ''
+    emit('close')
+  }
 }
 </script>
