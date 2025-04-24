@@ -27,9 +27,51 @@ This project showcases a complete task management application with a frontend bu
 -  Filter by status (all / active / completed)
 -  Input validation and basic error handling
 
-## Deployment Plan
 
-- Backend (Laravel) will be uploaded to `public_html/alibar-todo/`
-- Frontend (Vue) will be built with `npm run build` and copied to `backend/public/todo-frontend/`
-- SQLite database file (`database.sqlite`) will be deployed with the backend
-- `.htaccess` rewrite will be used to route requests to Laravel's `public/` folder
+## Local Development
+
+### Prerequisites
+
+- Node.js (v18+ recommended)
+- PHP (v8.1+)
+- Composer
+- SQLite (genellikle PHP ile birlikte gelir)
+
+### Setup Instructions
+
+1. **Clone the repository**  
+   ```bash
+   git clone https://github.com/your-username/alibar-todo.git
+   cd alibar-todo
+   ```
+
+2. **Install frontend dependencies and start dev server**  
+   ```bash
+   cd frontend
+   npm install
+   npm run dev
+   ```
+
+3. **Install backend dependencies**  
+   ```bash
+   cd ../backend
+   composer install
+   cp .env.example .env
+   php artisan key:generate
+   ```
+
+4. **Database setup (optional)**  
+   The project includes a default `database/database.sqlite` file.  
+   To reset or start fresh:
+   ```bash
+   rm database/database.sqlite
+   touch database/database.sqlite
+   php artisan migrate
+   ```
+
+5. **Start the Laravel server**  
+   ```bash
+   php artisan serve
+   ```
+
+Visit the frontend at `http://localhost:5173` and the API at `http://127.0.0.1:8000/api/todos`.
