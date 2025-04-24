@@ -4,7 +4,7 @@ A simple full-stack Todo application built with **Laravel 12 (API)** and **Vue 3
 
 ## Purpose
 
-This project showcases a complete task management application with a frontend built in Vue 3 and a backend powered by Laravel 12, using RESTful APIs.
+This project showcases a complete task management application with a frontend built in Vue 3 and a backend powered by Laravel 12 and SQLite, using RESTful APIs.
 
 
 ## Tech Stack
@@ -13,7 +13,7 @@ This project showcases a complete task management application with a frontend bu
 |-------------|-------------------|--------------------------------------|
 | Frontend    | Vue 3 + Vite      | Modern reactive UI                   |
 | Backend     | Laravel 12        | REST API with SQLite or MySQL DB     |
-| Database    | SQLite (local), MySQL (optional for prod) |
+| Database    | SQLite              | Lightweight file-based DB for simplicity |
 | UI Framework| Tailwind CSS  | Fast and responsive styling    |
 | HTTP Client | Axios             | API communication                    |
 | Version Control | Git + GitHub  | Source control                       |
