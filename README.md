@@ -27,6 +27,18 @@ This project showcases a complete task management application with a frontend bu
 -  Filter by status (all / active / completed)
 -  Input validation and basic error handling
 
+## Quick Start with Docker
+
+To quickly spin up the project using Docker:
+
+```bash
+git clone https://github.com/alibartwo/alibar-todo.git
+cd alibar-todo
+docker compose up --build
+```
+
+The frontend will be available at `http://localhost:5173` and the API at `http://localhost:8000/api/todos`.
+
 
 ## Local Development
 
@@ -41,7 +53,7 @@ This project showcases a complete task management application with a frontend bu
 
 1. **Clone the repository**  
    ```bash
-   git clone https://github.com/your-username/alibar-todo.git
+   git clone https://github.com/alibartwo/alibar-todo.git
    cd alibar-todo
    ```
 
