@@ -47,7 +47,7 @@ The frontend will be available at `http://localhost:5173` and the API at `http:/
 - Node.js (v18+ recommended)
 - PHP (v8.1+)
 - Composer
-- SQLite (genellikle PHP ile birlikte gelir)
+- SQLite
 
 ### Setup Instructions
 
